@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Ronny Haberer - Portfolio</title>
+	<meta name="author" content="Ronny Haberer" />
+	<meta name="description" content="Ronny Haberer, Produktdesign, Bauhaus-Universität Weimar, Portfolio" />
+	<meta name="keywords"  content="Ronny Haberer, Produktdesign, Bauhaus-Universität Weimar, Portfolio" />
+	<meta name="Resource-type" content="Document" />
+
+	<link rel="stylesheet" href="vendors/jquery.fullPage.css" />
+	<link rel="stylesheet" href="style.css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="vendors/scrolloverflow.js"></script>
+	<script type="text/javascript" src="vendors/jquery.fullPage.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(() => {
+			$('#fullpage').fullpage({
+			  sectionsColor: ['#ff9966', '#ff9966', '#ff9966', '#ff9966', '#ff9966', '#ff9966'],
+			  anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+			  menu: '#menu',
+			  continuousVertical: true
+			});
+		});
+	</script>
+    
+    <style>
+	h1{
+		font-family: arial,helvetica;
+		color: #fff;
+		margin:0;
+	}
+	.intro p{
+	width: 70%;
+	margin: 0 auto;
+	
+	text-align:left!important;
+}
+	h1{	font-size: 1.5em;
+		padding-top:20px;}
+	p{	font-size: 2em;}
+	.intro p{font-size: 1.1em;}
+@media (min-width:993px){
+	h1{	font-size: 4em;
+	padding:10px!important;}
+	.intro p{font-size: 1.6em;}
+		}
+	
+
+
+	.section{
+		text-align:center;
+		background-size: cover;
+	}
+
+	.slide{
+		background-size: cover;
+	}
+
+	
+	#section0 h1{
+		top: 50%;
+		transform: translateY(-50%);
+		position: relative;
+	}
+	
+	.footer {bottom: 0px!important; right: 0px!important;}
+		
+	#myVideo{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		top:0;
+		right:0;
+		width: 100%;
+		height: 100%;
+		background-size: 100% 100%;
+ 		background-color: black; /* in case the video doesn't fit the whole page*/
+  		/*background-image: /* our video ;*/
+  		background-position: center center;
+  		background-size: contain;
+   		object-fit: cover; /*cover video background */
+   		z-index:3;
+	}
+
+	#section3 .layer{
+		position: absolute;
+		z-index: 4;
+		width: 100%;
+		left: 0;
+		top: 43%;
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+
+	/*solves problem with overflowing video in Mac with Chrome */
+	#section3{
+		overflow: hidden;
+	}
+	
+	#slide_a1{ background-image: url(imgs/sko/ronnyhaberer_sledge_1.jpg);}
+	#slide_a3{ background-image: url(imgs/sko/ronnyhaberer_sledge_2.jpg);}
+	#slide_a4{ background-image: url(imgs/sko/ronnyhaberer_sledge_3.jpg);}
+	#slide_a5{ background-image: url(imgs/sko/ronnyhaberer_mic_clamp_1.jpg);}
+	#slide_a6{ background-image: url(imgs/sko/ronnyhaberer_mic_clamp_2.jpg);}
+	#slide_a7{ background-image: url(imgs/sko/ronnyhaberer_helmet_1.jpg);}
+	#slide_a8{ background-image: url(imgs/sko/ronnyhaberer_helmet_2.jpg);}
+	#slide_a9{ background-image: url(imgs/sko/ronnyhaberer_helmet_3.jpg);}
+	
+	#slide_b1{ background-image: url(imgs/workplace/ronnyhaberer_workplace_1.jpg);}
+	#slide_b2{ background-image: url(imgs/workplace/ronnyhaberer_workplace_2.jpg);}
+	#slide_b3{ background-image: url(imgs/workplace/ronnyhaberer_workplace_3.jpg);}
+	#slide_b4{ background-image: url(imgs/workplace/ronnyhaberer_workplace_4.jpg);}
+	#slide_b5{ background-image: url(imgs/workplace/ronnyhaberer_workplace_5.jpg);}
+
+	#slide_c1{ background-image: url(imgs/biodesign/ronnyhaberer_biodesign_001.jpg);}
+	#slide_c2{ background-image: url(imgs/biodesign/ronnyhaberer_biodesign_002.jpg);}
+	#slide_c3{ background-image: url(imgs/biodesign/ronnyhaberer_biodesign_003.jpg);}
+	#slide_c4{ background-image: url(imgs/biodesign/ronnyhaberer_biodesign_004.jpg);}
+	#slide_c5{ background-image: url(imgs/biodesign/ronnyhaberer_biodesign_005.jpg);}
+	#slide_c6{ background-image: url(imgs/biodesign/ronnyhaberer_biodesign_006.jpg);}
+	#slide_c7{ background-image: url(imgs/biodesign/ronnyhaberer_biodesign_007.jpg);}
+	#slide_c8{ background-image: url(imgs/biodesign/ronnyhaberer_biodesign_008.jpg);}
+	#slide_c9{ background-image: url(imgs/biodesign/ronnyhaberer_biodesign_009.jpg);}
+
+	#slide_d1{ background-image: url(imgs/3D/ronnyhaberer_3d_001.jpg);}
+	#slide_d2{ background-image: url(imgs/3D/ronnyhaberer_3d_002.jpg);}
+	#slide_d3{ background-image: url(imgs/3D/ronnyhaberer_3d_003.jpg);}
+	#slide_d4{ background-image: url(imgs/3D/ronnyhaberer_3d_004.jpg);}
+	
+	#infoMenu li a {
+		color: #fff;
+	}
+	
+	video::-webkit-media-controls {
+	  display:none !important;
+	}
+	</style>
+
+</head>
+<body>
+
+<ul id="menu">
+	<li data-menuanchor="page1" class="active"><a href="#page1">Ronny Haberer</a></li>
+	<li data-menuanchor="page2"><a href="#page2">SKO 16/17</a></li>
+	<li data-menuanchor="page3"><a href="#page3">Workplace 16</a></li>
+	<li data-menuanchor="page4"><a href="#page4">4D-Printing Simulation - 3dpc Winner 17</a></li>
+	<li data-menuanchor="page5"><a href="#page5">Bio Design 17</a></li>
+	<li data-menuanchor="page6"><a href="#page6">3D 17</a></li>
+    <li><a href="mailto:mail@ronnyhaberer.de">Contact</a></li>
+</ul>
+
+<div id="fullpage">
+
+	<div class="section " id="section0">
+    	<div class="intro">
+        	<h1><a href="https://www.3dpc.io/de/2017">
+            	<img width="300px" src="imgs/3dpc_winner_2017.png" alt="Programmable Textiles - 3D Pioneers Challange Winner 2017">               
+            </a></h1>
+            <h1>Ronny Haberer</h1>
+            <h1>Portfolio</h1>
+        </div>
+	</div>
+	
+	<div class="section" id="section1">
+		<div class="slide" id="slide_a1"></div>
+        <div class="slide" id="slide_a3"></div>
+        <div class="slide" id="slide_a4"></div>
+        <div class="slide" id="">
+        	<div class="intro">
+            <h1>Microphone Clamp</h1>
+            <p>Project: Nichts Leichter Als Das!, 2016/2017, Supervising Professor: Prof. Andreas Mühlenberend<br><br></p>
+        	<p>Different ways of interpreting the results of the topology optimisation led to two versions of the clamp. For the first clamp I got inspired by the results of the calcula- tion itself. The second design is generated by an algorithm I wrote. The 3D-printed tree-structure is relatively stable compared to the dimensions of its limbs.</p>
+            </div>
+        </div>
+		<div class="slide" id="slide_a5"></div>
+        <div class="slide" id="slide_a6"></div>
+        <div class="slide" id="">
+        	<div class="intro">
+            	<h1>Skate Helmet / Variation</h1>
+                <p>Project: Nichts Leichter Als Das!, 2016/2017, Supervising Professor: Prof. Andreas Mühlenberend<br><br></p>
+        		<p>Street sports are popular. On the way to work, average distances are easily managed without being bound to bulgy equipment. However, speed and convenience are in a harsh contrast to personal safety. Protective gear, that is obligatory in professional sports, can be limiting in everyday situations. A minimal protection should be provided for the head, at least. My helmet, for the application of street-skating, is adapted to common fall scenarios thereby seeking a balance between convenience, lightness and protection.</p>
+            </div>
+        </div>
+        <div class="slide" id="slide_a7"></div>
+        <div class="slide" id="slide_a8"></div>
+        <div class="slide" id="slide_a9"></div>
+	</div>
+
+	<div class="section" id="section2">
+    	<div class="slide" id="slide_b1"></div>
+        <div class="slide" id="">
+        	<div class="intro">
+        		<h1>Hang It Up</h1>
+                <p>Project: Machen Heißt Kultur Schaffen, 2016, Supervising Professor: Prof. Gerrit Babtist, Co-Author: Christian Wiegert<br><br></p>
+               
+        		<p>A desk is the central object of many workspaces. It is true that students appreciate flexibility and that they have many different workspaces, however, a personal desk remains a central value.
+My concept desk „Abhänger“ is made of two multiplex panels and a small number of pipes. The size of the panels and pipes is adjusted to local standards in order to guarantee a minimum of cutting waste and a student- friendly price. In that way, students are able to adapt the individual parts to their own needs. The panels are fixed with the help of Paracord, thereby stabilising the crossed legs. The top construction and the tabletop create a personal space without building an enclosed area.
+The storage space between the two panels is measured to fit DIN A3 sheets as well as providing a cut out for comfortable leg space. An adjustable pipe provides the base for prints, drawings, sketches or even a camera. On the underside of the panels, there are several holes that serve as connection points to hang up any kind of material with the help of Paracord. „Hang it up!“ becomes the new maxim to creatively expand your workspace and personalise it at the same time.</p>
+			</div>
+		</div>
+		<div class="slide" id="slide_b2"></div>
+        <div class="slide" id="slide_b3"></div>
+        <div class="slide" id="slide_b4"></div>
+		<div class="slide" id="slide_b5"></div>
+	</div>
+	
+	<div class="section " id="section3">
+		<video id="myVideo" loop muted data-autoplay>
+			<source src="imgs/ronnyhaberer_4d_printing_simulation.mp4" type="video/mp4">
+		</video>
+		<div class="layer"></div>
+	</div>
+
+	<div class="section" id="section4">
+    	<div class="slide" id="slide_c1"></div>
+        <div class="slide" id="">
+        	<div class="intro">
+        		<h1>Chitosan Bioplastics</h1>
+                <p>Project: Biodesign, 2017, Pratt Institute New York, Supervising Professor: Prof. Jeanne Pfordresher, Co-Author: Paul Eunchan Kim<br><br></p>
+               
+        		<p>Chitosan is a linear polysaccharide that comes from chitin, which is the second most natural polymer on earth next to cellulose.
+					100 billion tons of chitin are produced every year. Chitin comes from exoskeletons of arthropods.
+					We specifically focused on shrimp shells because it is easily collectible from the shrimp factories and it has not been used for industrial purposes yet. Chitin is nature’s one of the strongest components while humans treat them as waste. Chitosan-based bioplastic is biocompatible and fully biodegradable after use.
+					If composed it degrades in few weeks while plastic lasts for more than 400 years.</p>
+			</div>
+		</div>
+
+		
+		<div class="slide" id="slide_c2"></div>
+        <div class="slide" id="slide_c3"></div>
+		<div class="slide" id="slide_c4"></div>
+		<div class="slide" id="">
+        	<div class="intro">
+        		<h1>The Clock</h1>
+                <p>To explore the possibilities of using chitosan bioplastic for electronic housings we created a clock with it. The structure was made with 3d printed PLA while using chitosan bioplastic for the surface. We added calcium citrus to the clock face to achieve opaque and natural looking surface. For the sides and the back, it has a structure that stabilizes the sheet.</p>
+			</div>
+		</div>
+		<div class="slide" id="slide_c5"></div>
+		<div class="slide" id="slide_c6"></div>
+		<div class="slide" id="slide_c7"></div>
+		<div class="slide" id="slide_c8"></div>
+		<div class="slide" id="slide_c9"></div>
+	</div>
+	
+	<div class="section" id="section5">
+    	<div class="slide" id="slide_d1"></div>
+		<div class="slide" id="slide_d2"></div>
+        <div class="slide" id="slide_d3"></div>
+        <div class="slide" id="slide_d4"></div>
+	</div>
+
+</div>
+
+
+
+</body>
+</html>
