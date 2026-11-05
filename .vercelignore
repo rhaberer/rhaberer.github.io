@@ -1,0 +1,15 @@
+.git
+.next
+node_modules
+.env*
+assets
+imgs
+vendors
+materialize
+index.html
+style.css
+gruen.html
+tests
+docs
+scripts
+README.md
