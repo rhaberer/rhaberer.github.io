@@ -46,16 +46,18 @@ export function ProjectIndex() {
               className="project-link"
             >
               <div className="project-image">
-                <Image
-                  src={p.cover}
-                  alt={
-                    p.images.find((image) => image.src === p.cover)?.alt ||
-                    p.subtitle
-                  }
-                  fill
-                  sizes="(max-width: 700px) 100vw, 50vw"
-                  loading={p.number === "01" ? "eager" : "lazy"}
-                />
+                <div className="project-cover">
+                  <Image
+                    src={p.cover}
+                    alt={
+                      p.images.find((image) => image.src === p.cover)?.alt ||
+                      p.subtitle
+                    }
+                    fill
+                    sizes="(max-width: 700px) 100vw, 50vw"
+                    loading={p.number === "01" ? "eager" : "lazy"}
+                  />
+                </div>
                 <span className="image-label mono">
                   {p.number} / {p.category}
                 </span>

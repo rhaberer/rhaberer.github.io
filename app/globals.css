@@ -454,6 +454,19 @@ input[type="range"] {
   padding: 24px;
   transition: transform 0.5s;
 }
+.project-cover {
+  position: absolute;
+  inset: 0;
+}
+.project-3d-studies .project-image {
+  container-type: size;
+}
+.project-3d-studies .project-cover {
+  inset: 50% auto auto 50%;
+  width: 100cqh;
+  height: 100cqw;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
 .project-link:hover .project-image {
   transform: translateY(-3px);
   box-shadow: 0 18px 24px -22px #44302766;
@@ -711,6 +724,22 @@ input[type="range"] {
   height: auto;
   max-height: 85svh;
   object-fit: contain;
+}
+.case-figure-landscape > a {
+  position: relative;
+  width: min(100%, 127.5svh);
+  margin-inline: auto;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.case-figure-landscape img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 66.6667%;
+  height: 150%;
+  max-height: none;
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 .case-figure figcaption {
   display: flex;

@@ -42,7 +42,9 @@ function ProjectImage({
     dimensions as Record<string, { width: number; height: number }>
   )[image.src];
   return (
-    <figure className="case-figure">
+    <figure
+      className={`case-figure${image.src === "/imgs/3D/ronnyhaberer_3d_001.webp" ? " case-figure-landscape" : ""}`}
+    >
       <a
         href={image.src}
         target="_blank"

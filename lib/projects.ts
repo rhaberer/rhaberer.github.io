@@ -129,10 +129,10 @@ export const projects: Project[] = [
     credits:
       "Co-author: Paul Eunchan Kim · Supervising professor: Prof. Jeanne Pfordresher",
     details: {
-      heading: "Material process & potential uses",
-      body: "MILK. Material LAB’s profile describes chitosan formulations made with water and acid, with calcium carbonate, proteins or pigments used as additives. It gives an approximate 48-hour curing period and identifies disposable lids and packaging films as possible applications. The work is listed as a concept in its materials archive.",
+      heading: "Featured in MILK. Material LAB",
+      body: "This project was selected for inclusion in MILK. Material LAB’s materials archive.",
       source: {
-        label: "Read the material profile at MILK. Material LAB",
+        label: "View the material profile",
         url: "https://www.milk-food.de/insights/materials/chitosan-biopalstics/",
       },
     },
