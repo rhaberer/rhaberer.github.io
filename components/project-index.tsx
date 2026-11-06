@@ -60,7 +60,9 @@ export function ProjectIndex() {
                   {p.number} / {p.category}
                 </span>
                 {p.award && (
-                  <span className="award-label">↗ 3DPC Winner 2017</span>
+                  <span className="award-label">
+                    <Arrow diagonal /> 3DPC Winner 2017
+                  </span>
                 )}
                 <span
                   className="project-open"

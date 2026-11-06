@@ -2,7 +2,7 @@
 
 Primary mark: the owner’s existing GitHub avatar, rebuilt as SVG. Ten isometric cubes form a 3–4–3 arrangement. The circular version retains a white background; a separate transparent version contains only the linework. Header and favicon use the same geometry, with optically heavier strokes at small sizes.
 
-Secondary motif: the first approved four-panel spherical concept, generated with the built-in imagegen tool after Terra-assisted design exploration. It is used only as a blurred, low-opacity coral background element. Later variations were abandoned at the owner’s request. The image-generation prompt is saved in `panelled-sphere-prompt.txt`.
+Background: a continuous warm-to-cool page gradient with subtle grain. The earlier spherical motifs, generated concepts and prompts have been removed; the cube avatar is the retained identity.
 
 The interactive scene is a modular cube assembly derived from the primary avatar. It offers porcelain, coral and chrome finishes, separation, outline, rotation and pause controls.
 

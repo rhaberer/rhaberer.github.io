@@ -29,9 +29,6 @@ export function Header() {
         <Link href="/#work" onClick={() => setOpen(false)}>
           Work <sup>06</sup>
         </Link>
-        <Link href="/#playground" onClick={() => setOpen(false)}>
-          Playground
-        </Link>
         <Link href="/#about" onClick={() => setOpen(false)}>
           About
         </Link>

@@ -32,15 +32,43 @@ test("every original portfolio photograph is included in a project", () => {
         );
     }
 });
-test("legacy Dropbox bundle is outside the deployed public directory", () => {
-  assert.ok(!existsSync("public/assets/index-v2ilsv_b.js"));
-  assert.ok(!existsSync("public/gruen.html"));
+test("retired application files are absent from the checkout and public site", () => {
+  for (const base of ["", "public/"])
+    for (const path of [
+      "assets",
+      "vendors",
+      "materialize",
+      "gruen.html",
+      "index.html",
+      "style.css",
+    ])
+      assert.ok(
+        !existsSync(base + path),
+        `Retired file remains: ${base}${path}`,
+      );
 });
-test("published portfolio images contain no embedded EXIF location data", async () => {
+test("published photographs are used, correctly sized, and contain no EXIF data", async () => {
   const { default: sharp } = await import("sharp");
+  const dimensions = JSON.parse(
+    readFileSync("lib/media-dimensions.json", "utf8"),
+  );
+  const included = new Set(
+    projects.flatMap((p) => p.images.map((image) => image.src)),
+  );
+  for (const folder of ["3D", "biodesign", "sko", "workplace"])
+    for (const file of readdirSync(`public/imgs/${folder}`))
+      assert.ok(
+        included.has(`/imgs/${folder}/${file}`),
+        `Unused public image: ${folder}/${file}`,
+      );
   for (const p of projects)
     for (const image of p.images) {
       const metadata = await sharp("public" + image.src).metadata();
       assert.equal(metadata.exif, undefined, image.src);
+      assert.deepEqual(
+        dimensions[image.src],
+        { width: metadata.width, height: metadata.height },
+        image.src,
+      );
     }
 });

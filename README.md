@@ -32,15 +32,17 @@ npm run start
 - `public/imgs`: WebP photographs, rotated to their correct orientation with EXIF metadata removed. Original video and award mark retained.
 - `public/identity/github-avatar.svg`: faithful vector rebuild of the original avatar.
 - `public/identity/cube-mark.svg`: the same linework with a transparent background.
-- `public/identity/spherical-motif.svg`: secondary coral background motif.
+- `imgs/`: original project photographs retained as source material; the site serves the optimised versions in `public/imgs/`.
 - `instrumentation.ts`: Vercel OpenTelemetry registration.
 - `app/api/health/route.ts`: uncached health response with a `portfolio.health` span.
 - `docs/VERCEL.md`: deployment, monitoring, tracing, and verification.
 
 Add a project in `lib/projects.ts`, put its media in `public/`, and add the media's width and height to `lib/media-dimensions.json`. Keep cover subjects fully visible. Project galleries use intrinsic dimensions and `object-fit: contain`; every image also opens at full size. All original portfolio photographs are represented.
 
-## Existing files
+## Repository cleanup
 
-The original HTML, CSS, vendor files, and source media remain at the repository root as migration references. Next.js serves `app/` and `public/`. `.vercelignore` excludes the legacy application from CLI source uploads. `/index.html` redirects to `/`. The GRÜNforum project is omitted from the new portfolio.
+Next.js serves `app/` and `public/`. The retired Gauforum/GRÜNforum application, its assets and upload bundle, the old HTML/CSS and jQuery/Materialize libraries, and abandoned sphere-branding experiments have been removed. `/index.html` still redirects to `/` for existing links.
 
-The old GRÜNforum browser bundle contains embedded Dropbox credentials. It is deliberately excluded from the new public site. Revoke the exposed credentials in Dropbox and review the old GitHub Pages deployment and Git history. A client-only bundle cannot safely hold a refresh token or client secret. The old upload service has not been migrated.
+Original project photographs remain in `imgs/`; duplicate video and award-image files were removed from that directory because identical copies are served from `public/imgs/`. Root-anchored `.vercelignore` rules exclude source photographs without excluding the deployed images.
+
+The removed upload bundle contained embedded Dropbox credentials. Removing it from the working tree does not revoke those credentials or remove them from earlier Git commits; the historical exposure still needs to be handled in Dropbox and, if needed, Git history.

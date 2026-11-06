@@ -1,15 +1,10 @@
-.git
-.next
-node_modules
-.env*
-assets
-imgs
-vendors
-materialize
-index.html
-style.css
-gruen.html
-tests
-docs
-scripts
-README.md
+# Keep source photographs local; deploy the optimised public/imgs copies.
+/.git
+/.next
+/node_modules
+/.env*
+/imgs
+/tests
+/docs
+/README.md
+/*.tsbuildinfo

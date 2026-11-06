@@ -10,13 +10,13 @@ The checkout is linked to the existing **portfolio** project in **Ronny's projec
 - Build: `npm run build`
 - Output directory: framework default
 
-The local source is deployed through the CLI; changes remain uncommitted until reviewed. Future Git-triggered deployment requires committing and pushing this application to `main`. The original GitHub Pages site does not run Next.js server features; use Vercel for the new application.
+Local source can be deployed through the CLI; Git-triggered deployment uses commits pushed to `main`. GitHub Pages does not run Next.js server features; use Vercel for this application.
 
 ## Agent setup
 
 Official setup guide: https://vercel.com/get-started.md
 
-Vercel CLI 65.11.0 is installed in `~/.local/bin`; CLI login is authenticated as `rhaberer`. The official Vercel agent plugin is installed for Codex in user scope. Its manifest declares the shared remote MCP endpoint `https://mcp.vercel.com`. The connected Vercel tools passed documentation-search and read-only account/project checks. Explicit team-scoped mutation through that connector returned 403; the authenticated CLI with the verified team scope is used for project configuration and deployment. No duplicate MCP entry was added.
+Vercel CLI 65.11.0 is installed in `~/.local/bin`. The official Vercel agent plugin uses `https://mcp.vercel.com`; the connection has been authorised for the portfolio team. If team access later returns 403, use the connector's team-authorisation flow and retry. Verify the linked project and team before deploying.
 
 If `vercel` is absent from a new terminal's path, add `~/.local/bin` to that terminal's PATH. No unrelated shell settings were changed.
 

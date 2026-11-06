@@ -36,6 +36,7 @@ export function Study() {
           { EffectComposer },
           { RenderPass },
           { OutputPass },
+          { SMAAPass },
           { ShaderPass },
         ] = await Promise.all([
           import("three/addons/environments/RoomEnvironment.js"),
@@ -43,6 +44,7 @@ export function Study() {
           import("three/addons/postprocessing/EffectComposer.js"),
           import("three/addons/postprocessing/RenderPass.js"),
           import("three/addons/postprocessing/OutputPass.js"),
+          import("three/addons/postprocessing/SMAAPass.js"),
           import("three/addons/postprocessing/ShaderPass.js"),
         ]);
         if (destroyed) return;
@@ -64,13 +66,28 @@ export function Study() {
         camera.position.set(8, 8, 8);
         camera.lookAt(0, 0, 0);
         // Canvas MSAA alone does not antialias offscreen post-processing buffers.
+        const gl = renderer.getContext() as WebGL2RenderingContext;
+        const hdr = renderer.extensions.has("EXT_color_buffer_float");
+        // Safari can support fewer samples for HDR than its global MAX_SAMPLES.
+        const supportedSamples: Int32Array = gl.getInternalformatParameter(
+          gl.RENDERBUFFER,
+          hdr ? gl.RGBA16F : gl.RGBA8,
+          gl.SAMPLES,
+        );
         const renderTarget = new THREE.WebGLRenderTarget(1, 1, {
-          type: THREE.HalfFloatType,
-          samples: Math.min(4, renderer.capabilities.maxSamples),
+          type: hdr ? THREE.HalfFloatType : THREE.UnsignedByteType,
+          samples: Math.max(
+            0,
+            ...Array.from(supportedSamples).filter((n) => n <= 4),
+          ),
         });
         const composer = new EffectComposer(renderer, renderTarget);
         const renderPass = new RenderPass(scene, camera);
         const outputPass = new OutputPass();
+        // Smooth shader highlights and thin outlines as well as mesh silhouettes.
+        // SMAA runs after tone mapping, in display colour space, and preserves alpha.
+        const antialiasPass = new SMAAPass();
+        antialiasPass.clear = true;
         // Static, sub-pixel grain breaks up colour banding without shimmering.
         // Preserve alpha so the page background continues through the canvas.
         const grainPass = new ShaderPass({
@@ -96,6 +113,7 @@ export function Study() {
         });
         composer.addPass(renderPass);
         composer.addPass(outputPass);
+        composer.addPass(antialiasPass);
         composer.addPass(grainPass);
         const pmrem = new THREE.PMREMGenerator(renderer);
         const room = new RoomEnvironment();
@@ -170,7 +188,7 @@ export function Study() {
         };
         const floorGeometry = new THREE.PlaneGeometry(200, 200);
         const floorMaterial = new THREE.ShadowMaterial({
-          color: "#635449",
+          color: "#000000",
           opacity: 0.18,
           depthWrite: false,
         });
@@ -221,17 +239,27 @@ export function Study() {
           render();
         };
         update(0, 12, false);
-        const resize = new ResizeObserver(() => {
+        const resizeViewport = () => {
           const { width, height } = element.getBoundingClientRect();
           if (!width || !height) return;
+          // Keep Retina/zoom changes sharp while bounding mobile GPU memory.
+          const pixelRatio = Math.min(
+            Math.max(window.devicePixelRatio, 1.5),
+            2.5,
+            Math.sqrt(2_000_000 / (width * height)),
+          );
+          renderer.setPixelRatio(pixelRatio);
+          composer.setPixelRatio(pixelRatio);
           renderer.setSize(width, height);
           composer.setSize(width, height);
           viewportWidth = width;
           viewportHeight = height;
           fitCamera();
           render();
-        });
+        };
+        const resize = new ResizeObserver(resizeViewport);
         resize.observe(element);
+        window.addEventListener("resize", resizeViewport);
         const visibility = new IntersectionObserver((entries) => {
           visible = entries[0].isIntersecting;
         });
@@ -301,6 +329,7 @@ export function Study() {
         cleanup = () => {
           cancelAnimationFrame(frame);
           resize.disconnect();
+          window.removeEventListener("resize", resizeViewport);
           visibility.disconnect();
           renderer.domElement.removeEventListener("pointerdown", down);
           renderer.domElement.removeEventListener("pointermove", move);
@@ -309,6 +338,7 @@ export function Study() {
           renderer.domElement.removeEventListener("webglcontextlost", lost);
           renderPass.dispose();
           outputPass.dispose();
+          antialiasPass.dispose();
           grainPass.dispose();
           composer.dispose();
           geometry.dispose();
@@ -349,7 +379,6 @@ export function Study() {
         <span>
           <i className="status-dot" /> Modular study / 01
         </span>
-        <span>↗ Live 3D</span>
       </div>
       <div
         ref={host}
@@ -414,7 +443,7 @@ export function Study() {
         </button>
       </div>
       <div className="study-bottom mono">
-        <span>Identity study / 2026</span>
+        <span></span>
         <div>
           <button
             onClick={() => api.current?.rotate()}

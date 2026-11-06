@@ -503,6 +503,13 @@ input[type="range"] {
   padding: 7px 9px;
   border-radius: 3px;
   font-size: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.award-label svg {
+  width: 12px;
+  height: 12px;
 }
 .project-info {
   display: flex;
@@ -956,14 +963,6 @@ input[type="range"] {
   .hero-stage {
     width: 100%;
     margin-top: 20px;
-  }
-  .ambient-sphere {
-    width: 520px;
-    height: 520px;
-    right: -150px;
-    top: 80px;
-    filter: blur(32px);
-    opacity: 0.12;
   }
   .study {
     padding: 0;
